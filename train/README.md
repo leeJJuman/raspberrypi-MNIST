@@ -1,60 +1,80 @@
 # MNIST Model Training
 
-MNIST 데이터셋을 이용하여 CNN 기반 숫자 인식 모델을 학습하고
-학습된 모델을 TensorFlow Lite 형식으로 변환하는 과정입니다.
+MNIST 데이터셋을 이용하여 숫자 인식 모델을 학습하고
+학습된 Keras 모델을 TensorFlow Lite 형식으로 변환합니다.
 
-## Environment
+# Environment
 
-### Software
+## Software
 
 * Python
 * Jupyter Notebook
 * TensorFlow
 * NumPy
+* Matplotlib
+* Scikit-learn
+* Seaborn
 
-## Practice
+# Practice
 
-### 01. MNIST Dataset
+## 01. MNIST Dataset
 
-MNIST 데이터셋을 불러와 학습 데이터와 테스트 데이터를 전처리합니다.
+MNIST 데이터셋을 불러오고 모델 학습을 위한 데이터를 전처리합니다.
 
 * MNIST Dataset
-* Data Preprocessing
-* Image Normalization
 * Training Data
 * Test Data
+* Image Normalization
+* One-hot Encoding
 
-### 02. CNN Model
+## 02. Model Training
 
-MNIST 데이터를 이용하여 CNN 모델을 학습합니다.
+28 x 28 크기의 MNIST 이미지를 Flatten하여
+Dense Layer 기반의 숫자 분류 모델을 학습합니다.
 
-* Convolution
-* Max Pooling
+* Flatten
+* Dense Layer
 * ReLU
-* Fully Connected Layer
 * Softmax
+* Adam Optimizer
 * Model Training
-* Model Evaluation
 
-### 03. TensorFlow Lite
+## 03. Model Evaluation
 
-학습된 모델을 TensorFlow Lite 형식으로 변환하여
-Raspberry Pi에서 사용할 수 있도록 모델을 저장합니다.
+테스트 데이터를 이용하여 학습된 모델의 성능을 평가합니다.
 
-* TensorFlow Model
-* TFLite Conversion
-* Model Export
+* Loss
+* Accuracy
+* Confusion Matrix
+* Class Accuracy
 
-## Files
+## 04. TensorFlow Lite
+
+학습된 Keras 모델을 TensorFlow Lite 형식으로 변환하여
+Raspberry Pi에서 사용할 수 있도록 저장합니다.
+
+* Keras Model
+* TensorFlow Lite
+* Model Conversion
+* TFLite Model
+
+# Model
+
+* Input: 28 x 28 Grayscale Image
+* Hidden Layer: Dense 100
+* Activation: ReLU
+* Output Layer: Dense 10
+* Output Activation: Softmax
+* Optimizer: Adam
+* Epochs: 30
+
+# Result
+
+* Training Accuracy: 99.92%
+* Validation Accuracy: 97.21%
+* Test Accuracy: 97.56%
+
+# Files
 
 * MNIST_Training.ipynb
 * mnist_model.tflite
-
-## Learning Process
-
-* MNIST
-* CNN
-* TensorFlow
-* Model Training
-* TensorFlow Lite
-* Raspberry Pi Inference
